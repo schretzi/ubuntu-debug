@@ -5,7 +5,7 @@ RUN mkdir -p /etc/apt/keyrings/ && touch /etc/apt/keyrings/neo.gpg && wget -O - 
 RUN echo 'deb [signed-by=/etc/apt/keyrings/neo.gpg]  https://debian.neo4j.com stable latest' | tee -a /etc/apt/sources.list.d/neo4j.list;
 RUN apt update && apt install -y neo4j && rm -rf /var/lib/apt/lists/*
 RUN npm install -g @mermaid-js/mermaid-cli 
-RUN python3 -m venv ~/venv && source ~/venv/bin/activate && pip install neo4j 
+RUN python3 -m venv ~/venv && ~/venv/bin/pip install neo4j 
 
 USER 1001:1001
 
